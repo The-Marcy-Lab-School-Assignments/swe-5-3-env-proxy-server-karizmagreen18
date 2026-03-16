@@ -12,7 +12,7 @@ Why is it unsafe to make requests to a third-party API (like Giphy) directly fro
 
 **Your answer here**:
 
----
+--- 
 
 ## Question 2:
 

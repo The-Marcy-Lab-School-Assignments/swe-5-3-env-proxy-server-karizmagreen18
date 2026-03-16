@@ -1,14 +1,15 @@
-const API_KEY = 'How can I include this without exposing it to the public?';
-
 export const getTrendingGifs = async () => {
   try {
-    const response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=3`);
+    const response = await fetch(
+      `/api/gifs`);
 
     if (!response.ok) {
-      throw new Error(`Fetch failed with status - ${response.status}, ${response.statusText}`);
+      throw new Error(
+        `Fetch failed with status - ${response.status}, ${response.statusText}`,
+      );
     }
 
-    const responseData = await response.json();
+    const responseData = await response.json(); // parsing into a response that our code can understand
 
     return { data: responseData, error: null };
   } catch (error) {
@@ -17,12 +18,18 @@ export const getTrendingGifs = async () => {
   }
 };
 
+
+
 export const getGifsBySearch = async (searchTerm) => {
   try {
-    const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}&limit=3`);
+    const response = await fetch(
+      `/api/gifs/search?q=${searchTerm}`,
+    );
 
     if (!response.ok) {
-      throw new Error(`Fetch failed with status - ${response.status}, ${response.statusText}`);
+      throw new Error(
+        `Fetch failed with status - ${response.status}, ${response.statusText}`,
+      );
     }
 
     const responseData = await response.json();
